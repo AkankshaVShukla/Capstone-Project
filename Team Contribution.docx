@@ -1,0 +1,43 @@
+This project is submitted by 
+    Akanksha Shukla
+    Mihir Mirajkar
+    Piyush Choudhary
+    
+    
+    
+Contribution by Akanksha Shukla: 
+Contributed to forecasting time series data i.e. daily price of houses and trying to answer which days in a week would have highest cost and lowest cost of houses which can help users to plan their event well and make some savings.
+
+Following are the tasks:
+1. Cleaned calendar dataset and calculated average price for each day using python and stored data in daily_price.csv file.
+2. Used R to load the time series data (daily_price.csv), performed data transformation, and forecasted the price using ARIMA model.
+3. Using calendar dataset, created average multiplier with base as Sunday to estimate the price increase or decrease on other days of a week using python. 
+
+
+
+Contribution by Mihir Mirajkar:
+Contributed to preprocessing of data, Sentiment Analysis of review, Model Creation, accuracy computation, Prediction for new users.
+
+Following were the tasks:
+1. To understand the data better created a program which analysed which of the houses where available for less than 2% of the year and which houses where available for more than 98% of the year.
+2. Did sentiment analysis on individual reviews of each listed house, removed stop words from each review for better accuracy, calculated whether the review was a postive or negative review and based on number of positive and negative reviews of a particular house a review score was given to the house which ranged from 0 to 2, where, 0 indicated very negative and 2 indicated very positive reviews for the particular house.
+3. Created a dictionary which had key as listing ID of house and value as its review score. Saved this dictionary in pickle file for further use in another file
+4. Formed a feature set which included all unique amenities contained in all listed houses.
+5. Created a feature vector which had 1 on the index of amenity which was present in the house and 0 where the amenity was not included, added location as a feature for each house from listing.csv and used review score from previous step as the last feature. 
+6. To convert unique forecasted prices for each listing to a range of prices, performed k-means clustering and assigned cluster's centre to all the prices.
+7. Used these converted prices as labels for features of each house.
+8. Fitted various models (KNN, SVM, RandomForest, Decision Trees) and predicted prices for test set to calculate accuracies. Selected best model(kNN) based on accuracies recieved. 
+9. Created an interface so that a new user can enter his/her amenities and location to get a competative price as well as tips for increasing the chances of his/her house being rented.
+
+
+
+Contribution by Piyush Choudhary:
+Contributed to Time Series Forecasting of the prices used in model creation as labels, optimizing kmeans and kNN to perform better.
+
+Following were the tasks:
+1. Cleaned the data from calender.csv where some of the prices were not present, assigned missing values from listing.csv or assingned a previous value if present.
+2. Stored this new data in from of a json file, which had listing ID of a house as key and its 365 days of cleaned price as its value.
+3. Used this json formatted file in predicting the price of next month of the listed houses using auto.arima. Took the mean of predicted prices and stored them in price_ts.csv file with their listing ID.
+4. To improve k-means plotted an elbow plot of sum of distances from centres of each cluster to all points for different k. Choose the optimum k (k=10) by visual analysis of graph.
+5. For improvement in kNN plotted the accuracies against different k (0 to 1000) and selected where accuracy is max(117)
+6. Optimized kNN by trying out different parameters from sklearn.neighbors.kNeighborsClassifier. 
